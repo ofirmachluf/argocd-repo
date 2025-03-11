@@ -9,7 +9,7 @@ spec:
         repoURL: 'https://github.com/ofirmachluf/argocd-repo.git'
         revision: main
         directories:
-          - path: app/infra/*
+          - path: app/*
   template:
     metadata:
       name: '{{path.basename}}'
