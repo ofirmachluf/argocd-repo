@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: nginx-appset
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        repoURL: 'git@github.com:kaltura/ovp-argocd-ofir.git'
+        revision: main
+        directories:
+          - path: app/infra/*
+  template:
+    metadata:
+      name: '{{path.basename}}'
+    spec:
+      project: default
+      source:
+        repoURL: 'https://github.com/your-repo/app-of-appset.git'
+        targetRevision: main
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: default
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
