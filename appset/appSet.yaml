@@ -6,7 +6,7 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: 'git@github.com:kaltura/ovp-argocd-ofir.git'
+        repoURL: 'https://github.com/ofirmachluf/argocd-repo.git'
         revision: main
         directories:
           - path: app/infra/*
@@ -16,7 +16,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: 'https://github.com/your-repo/app-of-appset.git'
+        repoURL: 'https://github.com/ofirmachluf/argocd-repo.git'
         targetRevision: main
         path: '{{path}}'
       destination:
